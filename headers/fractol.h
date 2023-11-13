@@ -29,7 +29,7 @@
 # define COORDINATE_X_MAX 2
 # define COORDINATE_X_MIN -2
 # define COORDINATE_Y_MAX 2
-# define COORDINATE_Y_MIN 2
+# define COORDINATE_Y_MIN -2
 
 typedef struct s_data{
 	int		bits_per_pixel;

@@ -56,6 +56,6 @@ double	get_y_from_heighty(int screen_heighty)
 	double	y_factor;
 
 	y_factor = ((double)(screen_heighty) / (double)(HEIGHTY));
-	y = y_factor *(COORDINATE_Y_MAX - COORDINATE_Y_MIN) + COORDINATE_Y_MIN;
+	y = y_factor * (COORDINATE_Y_MAX - COORDINATE_Y_MIN) + COORDINATE_Y_MIN;
 	return (y);
 }

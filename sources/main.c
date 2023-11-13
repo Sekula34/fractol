@@ -17,9 +17,10 @@ int	main(int argc, char *argv[])
 	int	set_value;
 
 	set_value = input_handler(argc, argv);
-	double valuex;
-	valuex = get_x_from_widthx(184);
-	printf("koordinata x je %f, a y je %f\n ", valuex, get_y_from_heighty(183));
+	double valuex, valuey;
+	valuex = get_x_from_widthx(1);
+	valuey = get_y_from_heighty(167);
+	printf("koordinata x je %f, a y je %f\n ", valuex, valuey);
 	if (set_value == 1)
 	{
 		mandelbrot();
