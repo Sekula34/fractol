@@ -14,5 +14,15 @@
 
 void	mandelbrot()
 {
-	
+	t_conwin conn;
+	t_image img;
+
+	ft_printf("Uso sam ");
+	conn.mlx_connection = mlx_init();
+	conn.window_ptr = mlx_new_window(conn.mlx_connection, WIDTHX, HEIGHTY, "Prozor stare majke");
+	img.img = mlx_new_image(conn.mlx_connection, WIDTHX, HEIGHTY);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	mlx_put_image_to_window(conn.mlx_connection, conn.window_ptr, img.img, 0, 0);
+	mlx_loop(conn.mlx_connection);
+
 }

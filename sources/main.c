@@ -18,7 +18,7 @@ int	main(int argc, char *argv[])
 	set_value = input_handler(argc, argv);
 	if (set_value == 1)
 	{
-		//mandel
+		mandelbrot();
 	}
 	else if(set_value == 2)
 	{

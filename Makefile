@@ -1,17 +1,18 @@
 CC = cc 
 
 COMPILER_FLAGS = -Wall -Wextra -Werror
-MLX_CMP_FLAGS = 
+MLX_CMP_FLAGS = -lmlx -lXext -lX11
 
 SOURCES = sources/main.c \
-sources/input_handler.c 
+sources/input_handler.c \
+sources/mandelbrot.c
 
 NAME = fractol
 
 OBJS := $(SOURCES:%.c=%.o)
 
 %.o : %.c
-	$(CC) $(COMPILER_FLAGS) $(MLX_CMP_FLAGS) -c $< -o $@
+	$(CC) $(COMPILER_FLAGS)  -c $< -o $@
 
 $(NAME): $(OBJS)
 	@cd libft && $(MAKE) --no-print-directory && $(MAKE) --no-print-directory bonus

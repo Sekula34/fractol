@@ -24,6 +24,14 @@
 # include <X11/X.h>
 # include "../libft/libft.h"
 
+# define HEIGHTY 480
+# define WIDTHX 640 
+
+typedef struct s_connection_data1{
+	void *mlx_connection;
+	void *window_ptr;
+} t_conwin;
+
 typedef struct s_data{
 	int		bits_per_pixel;
 	int		line_length;
@@ -33,6 +41,7 @@ typedef struct s_data{
 } t_image;
 
 int		input_handler(int argc, char *argv[]);
+void	mandelbrot();
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 
 #endif
