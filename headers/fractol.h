@@ -24,6 +24,6 @@
 # include <X11/X.h>
 # include "../libft/libft.h"
 
-void	input_handler(int argc, char *argv[]);
+int	input_handler(int argc, char *argv[]);
 
 #endif

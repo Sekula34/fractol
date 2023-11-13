@@ -15,5 +15,6 @@
 int main(int argc, char *argv[])
 {
 	input_handler(argc, argv);
+	ft_printf("Set is %d\n", input_handler(argc, argv));
 	return(0);
 }

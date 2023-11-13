@@ -23,7 +23,7 @@ static char *get_lower_case(char *input)
 	if (input == NULL)
 		return (NULL);
 	length = ft_strlen(input);
-	lower_case = ft_calloc(length, sizeof(char));
+	lower_case = ft_calloc(length + 1, sizeof(char));
 	if (lower_case == NULL)
 		return (NULL);
 	i = 0;
@@ -61,7 +61,9 @@ static int is_name_correct(char *input)
 //check the number of arguments, if the input is not
 //something like ./fractol Mandelbrot or ./fractol Julia
 //exit program and print what are available parameters
-void	input_handler(int argc, char *argv[])
+//return 1 if set is Mandelbrot
+//return 2 if set is Julia
+int	input_handler(int argc, char *argv[])
 {
 	(void)(argv);
 	if(argc < 2)
@@ -72,12 +74,10 @@ void	input_handler(int argc, char *argv[])
 	}
 	if (is_name_correct(argv[1]) == 0)
 	{
-		ft_putstr_fd("Fractol set is not correct ", 2);
+		ft_putstr_fd("Fractol set is not correct "
+		"\nAvailable options are:\n\tMandelbrot \n\tJulia ",2);
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		ft_putstr_fd("name is correct", 1);
-	}
+	return (is_name_correct(argv[1]));
 }
 
