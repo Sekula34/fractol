@@ -14,7 +14,16 @@
 
 int	main(int argc, char *argv[])
 {
-	input_handler(argc, argv);
-	ft_printf("Set is %d\n", input_handler(argc, argv));
+	int set_value;
+	set_value = input_handler(argc, argv);
+	if (set_value == 1)
+	{
+		//mandel
+	}
+	else if(set_value == 2)
+	{
+		//julia
+	}
+	ft_printf("Set is %d\n", set_value);
 	return (0);
 }
