@@ -12,6 +12,29 @@
 
 #include "../headers/fractol.h"
 
+//function that allocates!! 
+//returning null if fails or lowercase version of input
+static char *get_lower_case(char *input)
+{
+	char *lower_case;
+	int	length;
+	int i;
+
+	if (input == NULL)
+		return (NULL);
+	length = ft_strlen(input);
+	lower_case = ft_calloc(length, sizeof(char));
+	if (lower_case == NULL)
+		return (NULL);
+	i = 0;
+	while (i < length)
+	{
+		lower_case[i] = ft_tolower(input[i]);
+		i++;
+	}
+	return (lower_case);
+}
+
 //check if input is == to Mandelbrot or Julia
 //return 0 if neither
 //return 1 if Mandelbrot;
@@ -19,14 +42,20 @@
 static int is_name_correct(char *input)
 {
 	int cmp_value;
-	
-	cmp_value = ft_strncmp(input, "Mandelbrot", 10);
+	char *lower_case_input;
+
+	if(input == NULL)
+		return (0);
+	lower_case_input = get_lower_case(input);
+	if(lower_case_input == NULL)
+		return (0);
+	cmp_value = ft_strncmp(lower_case_input, "mandelbrot", 10);
 	if(cmp_value == 0)
-		return (1);
-	cmp_value = ft_strncmp(input, "Julia", 5);
+		return (free(lower_case_input), 1);
+	cmp_value = ft_strncmp(lower_case_input, "julia", 5);
 	if(cmp_value == 0)
-		return (2);
-	return (0);
+		return (free(lower_case_input), 2);
+	return (free(lower_case_input), 0);
 }
 
 //check the number of arguments, if the input is not
