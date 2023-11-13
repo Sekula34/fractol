@@ -3,7 +3,8 @@ CC = cc
 COMPILER_FLAGS = -Wall -Wextra -Werror
 MLX_CMP_FLAGS = 
 
-SOURCES = main.c
+SOURCES = sources/main.c \
+sources/input_handler.c 
 
 NAME = fractol
 
