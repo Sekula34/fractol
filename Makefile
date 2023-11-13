@@ -5,7 +5,8 @@ MLX_CMP_FLAGS = -lmlx -lXext -lX11
 
 SOURCES = sources/main.c \
 sources/input_handler.c \
-sources/mandelbrot.c
+sources/mandelbrot.c \
+sources/utils.c
 
 NAME = fractol
 
