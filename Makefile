@@ -1,6 +1,6 @@
 CC = cc 
 
-COMPILER_FLAGS = -Wall -Wextra -Werror
+COMPILER_FLAGS = -Wall -Wextra -Werror -g
 MLX_CMP_FLAGS = -lmlx -lXext -lX11
 
 SOURCES = sources/main.c \
