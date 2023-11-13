@@ -12,10 +12,12 @@
 
 #include "../headers/fractol.h"
 
-
+//destroy everything aka image,  window, display
+//free  mlx_ptr
+//call this function when esc or x is pressed
 int	closing_function(void *param)
 {
-	t_fractol *param1;
+	t_fractol	*param1;
 
 	param1 = (t_fractol *)param;
 	mlx_destroy_image(param1->mlx_ptr, param1->img.img);
@@ -26,27 +28,27 @@ int	closing_function(void *param)
 	return (0);
 }
 
-int closef(int keycode, void *param)
+int	closef(int keycode, void *param)
 {
 	if (keycode == 65307)
 		closing_function(param);
 	return (1);
 }
 
-
-
-void	mandelbrot()
+void	mandelbrot(void)
 {
-	t_fractol data;
+	t_fractol	data;
 
 	data.mlx_ptr = mlx_init();
 	if (data.mlx_ptr == NULL)
 		exit(EXIT_FAILURE);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTHX, HEIGHTY, "Prozor stare majke");
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTHX, HEIGHTY,
+			"Prozor stare majke");
 	data.img.img = mlx_new_image(data.mlx_ptr, WIDTHX, HEIGHTY);
-	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel, &data.img.line_length, &data.img.endian);
+	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel,
+			&data.img.line_length, &data.img.endian);
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.img, 0, 0);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, closef, &data);
-	mlx_hook(data.win_ptr, DestroyNotify, NoEventMask,closing_function, &data);
+	mlx_hook(data.win_ptr, DestroyNotify, NoEventMask, closing_function, &data);
 	mlx_loop(data.mlx_ptr);
 }

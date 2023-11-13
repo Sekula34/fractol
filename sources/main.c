@@ -14,13 +14,14 @@
 
 int	main(int argc, char *argv[])
 {
-	int set_value;
+	int	set_value;
+
 	set_value = input_handler(argc, argv);
 	if (set_value == 1)
 	{
 		mandelbrot();
 	}
-	else if(set_value == 2)
+	else if (set_value == 2)
 	{
 		//julia
 	}
