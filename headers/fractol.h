@@ -25,8 +25,7 @@
 # include "../libft/libft.h"
 
 # define HEIGHTY 480
-# define WIDTHX 640 
-
+# define WIDTHX 640
 
 typedef struct s_data{
 	int		bits_per_pixel;
@@ -34,16 +33,16 @@ typedef struct s_data{
 	int		endian;
 	void	*img;
 	char	*addr;
-} t_image;
+}	t_image;
 
 typedef struct s_all_data{
 	t_image	img;
 	void	*mlx_ptr;
 	void	*win_ptr;
-}t_fractol;
+}	t_fractol;
 
 int		input_handler(int argc, char *argv[]);
-void	mandelbrot();
+void	mandelbrot(void);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 
 #endif
