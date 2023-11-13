@@ -29,8 +29,8 @@ void	set_coordinate_pos(int screen_widthx, int screen_heighty,
 	double	x_factor;
 	double	y_factor;
 
-	x_factor = (double)(screen_widthx / WIDTHX);
-	y_factor = (double)(screen_heighty / HEIGHTY);
+	x_factor = ((double)(screen_widthx) / (double)(WIDTHX));
+	y_factor = ((double)(screen_heighty) / (double)(HEIGHTY));
 	*x = x_factor * (COORDINATE_X_MAX - COORDINATE_X_MIN) + COORDINATE_X_MIN;
 	*y = y_factor * (COORDINATE_Y_MAX - COORDINATE_Y_MIN) + COORDINATE_Y_MIN;
 }
@@ -42,7 +42,7 @@ double	get_x_from_widthx(int screen_widthx)
 	double	x;
 	double	x_factor;
 
-	x_factor = (double)(screen_widthx / WIDTHX);
+	x_factor = ((double)(screen_widthx) / (double)(WIDTHX));
 	x = x_factor * (COORDINATE_X_MAX - COORDINATE_X_MIN) + COORDINATE_X_MIN;
 	return (x);
 }
@@ -55,6 +55,7 @@ double	get_y_from_heighty(int screen_heighty)
 	double	y;
 	double	y_factor;
 
-	y_factor = (double)(screen_heighty / HEIGHTY);
+	y_factor = ((double)(screen_heighty) / (double)(HEIGHTY));
 	y = y_factor *(COORDINATE_Y_MAX - COORDINATE_Y_MIN) + COORDINATE_Y_MIN;
+	return (y);
 }
