@@ -24,6 +24,15 @@
 # include <X11/X.h>
 # include "../libft/libft.h"
 
-int	input_handler(int argc, char *argv[]);
+typedef struct s_data{
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	void	*img;
+	char	*addr;
+} t_image;
+
+int		input_handler(int argc, char *argv[]);
+void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 
 #endif
