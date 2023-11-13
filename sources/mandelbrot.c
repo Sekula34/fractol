@@ -13,17 +13,22 @@
 #include "../headers/fractol.h"
 
 
-// closing_function()
-// {
-
-// }
+void closing_function(void *param)
+{
+	t_fractol *param1;
+	param1 = (t_fractol *)param;
+	mlx_destroy_image(param1->mlx_ptr, param1->img.img);
+	mlx_destroy_window(param1->mlx_ptr, param1->win_ptr);
+	mlx_destroy_display(param1->mlx_ptr);
+	free(param1->mlx_ptr);
+	exit(EXIT_SUCCESS);
+}
 
 int closef(int keycode, void *param)
 {
-	(void) *param;
 	if (keycode == 65307)
 	{
-		//closing_function();
+		closing_function(param);
 	}
 	ft_printf("Stisnuta tipka : %d\n", keycode);
 	return (1);
@@ -31,16 +36,15 @@ int closef(int keycode, void *param)
 
 void	mandelbrot()
 {
-	t_conwin conn;
-	t_image img;
+	t_fractol data;
 
 	ft_printf("Uso sam ");
-	conn.mlx_connection = mlx_init();
-	conn.window_ptr = mlx_new_window(conn.mlx_connection, WIDTHX, HEIGHTY, "Prozor stare majke");
-	img.img = mlx_new_image(conn.mlx_connection, WIDTHX, HEIGHTY);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	mlx_put_image_to_window(conn.mlx_connection, conn.window_ptr, img.img, 0, 0);
-	mlx_hook(conn.window_ptr, KeyPress, KeyPressMask, closef, NULL);
-	mlx_loop(conn.mlx_connection);
+	data.mlx_ptr = mlx_init();
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTHX, HEIGHTY, "Prozor stare majke");
+	data.img.img = mlx_new_image(data.mlx_ptr, WIDTHX, HEIGHTY);
+	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel, &data.img.line_length, &data.img.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.img, 0, 0);
+	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, closef, &data);
+	mlx_loop(data.mlx_ptr);
 
 }

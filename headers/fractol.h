@@ -27,10 +27,6 @@
 # define HEIGHTY 480
 # define WIDTHX 640 
 
-typedef struct s_connection_data1{
-	void *mlx_connection;
-	void *window_ptr;
-} t_conwin;
 
 typedef struct s_data{
 	int		bits_per_pixel;
@@ -39,6 +35,12 @@ typedef struct s_data{
 	void	*img;
 	char	*addr;
 } t_image;
+
+typedef struct s_all_data{
+	t_image	img;
+	void	*mlx_ptr;
+	void	*win_ptr;
+}t_fractol;
 
 int		input_handler(int argc, char *argv[]);
 void	mandelbrot();
