@@ -50,6 +50,7 @@ double	get_x_from_widthx(int screen_widthx);
 double	get_y_from_heighty(int screen_heighty);
 void	mandelbrot(void);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
-void 	set_coordinate_pos(int screen_widthx, int screen_heighty, double *x, double *y);
+void	set_coordinate_pos(int screen_widthx, int screen_heighty,
+			double *x, double *y);
 
 #endif
