@@ -26,6 +26,10 @@
 
 # define HEIGHTY 480
 # define WIDTHX 640
+# define COORDINATE_X_MAX 2
+# define COORDINATE_X_MIN -2
+# define COORDINATE_Y_MAX 2
+# define COORDINATE_Y_MIN 2
 
 typedef struct s_data{
 	int		bits_per_pixel;
@@ -42,7 +46,10 @@ typedef struct s_all_data{
 }	t_fractol;
 
 int		input_handler(int argc, char *argv[]);
+double	get_x_from_widthx(int screen_widthx);
+double	get_y_from_heighty(int screen_heighty);
 void	mandelbrot(void);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
+void 	set_coordinate_pos(int screen_widthx, int screen_heighty, double *x, double *y);
 
 #endif
