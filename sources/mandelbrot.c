@@ -12,7 +12,9 @@
 
 #include "../headers/fractol.h"
 
-
+//fucntion that depending od option moves coordinate system
+//aka moving picture with arrrows
+//1 up 2 down, 3 right 4 left
 void moving_arr(t_fractol *data, int option)
 {
 	if(option == 1)
