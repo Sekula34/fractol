@@ -47,6 +47,7 @@ void	mandelbrot(void)
 	data.img.img = mlx_new_image(data.mlx_ptr, WIDTHX, HEIGHTY);
 	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel,
 			&data.img.line_length, &data.img.endian);
+	mandel_artist(&data);
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.img, 0, 0);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, closef, &data);
 	mlx_hook(data.win_ptr, DestroyNotify, NoEventMask, closing_function, &data);
