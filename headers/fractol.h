@@ -42,26 +42,25 @@ typedef struct s_data{
 
 typedef struct s_color
 {
-	int transparency;
-	int red;
-	int green;
-	int blue;
+	int	transparency;
+	int	red;
+	int	green;
+	int	blue;
 }	t_color;
 
 typedef struct s_point
 {
-	t_color color;
-	double coordinate_x;
-	double coordinate_y;
-	double iterator_x;
-	double iterator_y;
-	double xtemp;
-	int screen_x;
-	int screen_y;
-	int iteration;
-	int max_iteration;
-} t_pixel;
-
+	t_color	color;
+	double	coordinate_x;
+	double	coordinate_y;
+	double	iterator_x;
+	double	iterator_y;
+	double	xtemp;
+	int		screen_x;
+	int		screen_y;
+	int		iteration;
+	int		max_iteration;
+}	t_pixel;
 
 typedef struct s_all_data{
 	t_image	img;
