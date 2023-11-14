@@ -32,13 +32,8 @@ static void data_initializator(t_pixel *pixel, int x, int y)
 	pixel->color.green = 0; 
 }
 
-static int is_true(t_pixel pixel)
+static int is_true(t_pixel pixel, double x_pow, double y_pow)
 {
-	double x_pow;
-	double y_pow;
-
-	x_pow = pixel.iterator_x * pixel.iterator_x;
-	y_pow = pixel.iterator_y * pixel.iterator_y;
 	if((x_pow + y_pow <= 4) && (pixel.iteration < pixel.max_iteration))
 		return (1);
 	return(0);
@@ -51,22 +46,25 @@ static void every_pixel_function(int x, int y, t_fractol *data)
 
 	int color = 0x00000000;
 
+	x_pow = 0;
+	y_pow = 0;
 	data_initializator(&pixel, x, y);
-	while(is_true(pixel))
+	while(is_true(pixel, x_pow, y_pow))
 	{
+		pixel.iterator_y = (2 * pixel.iterator_x) * pixel.iterator_y
+				+ pixel.coordinate_y;
+		pixel.iterator_x = x_pow - y_pow + pixel.coordinate_x;
 		x_pow = pixel.iterator_x * pixel.iterator_x;
 		y_pow = pixel.iterator_y * pixel.iterator_y;
-		pixel.xtemp = x_pow - y_pow + pixel.coordinate_x;
-		pixel.iterator_y = 2* pixel.iterator_x * pixel.iterator_y
-				+ pixel.coordinate_y;
-		pixel.iterator_x = pixel.xtemp;
 		pixel.iteration++;
 	}
 	//pixel.color.transparency = pixel.iteration % 256;
-	color = pixel.iteration;
+	//color = pixel.iteration;
 	printf("data is %p\n", data);
-
-	my_mlx_pixel_put(&(data->img),x, y, color);
+	if (x_pow + y_pow <= 4)
+		my_mlx_pixel_put(&(data->img),x, y, color);
+	else
+		my_mlx_pixel_put(&(data->img),x, y, (0x00AAAAAA/pixel.max_iteration) * pixel.iteration);
 }
 //function that iterates throught every pixel on window screen and 
 //call function on every pixel
