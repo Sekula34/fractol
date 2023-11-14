@@ -20,21 +20,6 @@ void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-//set both x and y to be between coordinate max and min defined in header
-//for example x will be between -2 and 2
-//y fill be between -2 and 2;
-void	set_coordinate_pos(int screen_widthx, int screen_heighty,
-			double *x, double *y)
-{
-	double	x_factor;
-	double	y_factor;
-
-	x_factor = ((double)(screen_widthx) / (double)(WIDTHX));
-	y_factor = ((double)(screen_heighty) / (double)(HEIGHTY));
-	*x = x_factor * (COORDINATE_X_MAX - COORDINATE_X_MIN) + COORDINATE_X_MIN;
-	*y = y_factor * (COORDINATE_Y_MAX - COORDINATE_Y_MIN) + COORDINATE_Y_MIN;
-}
-
 //return x from screen pixel to be between coordinate max and coordinate min
 //for example between -2 and 2 (if so defined in header) (depending od width)
 double	get_x_from_widthx(int screen_widthx)

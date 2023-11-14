@@ -74,7 +74,6 @@ double	get_y_from_heighty(int screen_heighty);
 void	mandel_artist(t_fractol *fractol);
 void	mandelbrot(void);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
-void	set_coordinate_pos(int screen_widthx, int screen_heighty,
-			double *x, double *y);
+
 
 #endif
