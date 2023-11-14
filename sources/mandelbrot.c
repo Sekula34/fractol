@@ -30,36 +30,54 @@ int	closing_function(void *param)
 //if esc is pressed close program and free everything
 int	closef(int keycode, void *param)
 {
+	t_fractol *data;
+
+	data = (t_fractol *)param;
+	ft_printf("stisno sam tipku %d\n", keycode);
 	if (keycode == 65307)
 		closing_function(param);
+	else if (keycode == 65451)
+	{
+		zooming(data, 1, WIDTHX/2, HEIGHTY/2);
+	}
+	else if (keycode == 65453)
+	{
+		zooming(data, 2, WIDTHX/2, HEIGHTY/2);
+	}
+	else if(keycode == 115)
+	{
+		data->coordinate_y_max += 0.1;
+		data->coordinate_y_min += 0.1;
+	}
+	else if(keycode == 119)
+	{
+		data->coordinate_y_max -= 0.1;
+		data->coordinate_y_min -= 0.1;
+	}
+	else if(keycode == 100)
+	{
+		data->coordinate_x_max += 0.1;
+		data->coordinate_x_min += 0.1;
+	}
+	else if(keycode == 97)
+	{
+		data->coordinate_x_max -= 0.1;
+		data->coordinate_x_min -= 0.1;
+	}
+	mandel_artist(data);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0 ,0 );
 	return (1);
 }
 
 int mouse_cather(int button, int x, int y, void *param)
 {
 	t_fractol *data;
-	double new_x_diff;
-	double new_y_diff;
-	double x_center;
-	double y_center;
+
 	data = (t_fractol *) param;
-	
 	if(button == 4)
-	{
-		new_x_diff = (data->coordinate_x_max - data->coordinate_x_min) * 0.9;
-		new_y_diff = (data->coordinate_y_max - data->coordinate_y_min) * 0.9;
-	}
+		zooming(data, 1, x, y);
 	if(button == 5)
-	{
-		new_x_diff = (data->coordinate_x_max - data->coordinate_x_min) * 1.1;
-		new_y_diff = (data->coordinate_y_max - data->coordinate_y_min) * 1.1;
-	}
-	x_center = get_x_from_widthx(x, data);
-	y_center = get_y_from_heighty(y, data);
-	data->coordinate_x_max = x_center + (new_x_diff / 2);
-	data->coordinate_x_min = x_center - (new_x_diff / 2);
-	data->coordinate_y_max = y_center + (new_y_diff / 2);
-	data->coordinate_y_min = y_center - (new_y_diff / 2);
+		zooming(data, 2, x, y);
 	mandel_artist(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
 	return (0);

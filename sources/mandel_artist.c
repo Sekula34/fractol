@@ -67,7 +67,7 @@ static void	every_pixel_function(int x, int y, t_fractol *data)
 	else
 	{
 		//my_mlx_pixel_put(&(data->img), x, y, color1);
-		my_mlx_pixel_put(&(data->img),x, y, (0x00AAAAAA/pixel.max_iteration) * pixel.iteration);
+		my_mlx_pixel_put(&(data->img),x, y, (0x10BBBBBB/pixel.max_iteration) * pixel.iteration);
 	}
 }
 

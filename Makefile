@@ -7,7 +7,8 @@ SOURCES = sources/main.c \
 sources/input_handler.c \
 sources/mandelbrot.c \
 sources/utils.c \
-sources/mandel_artist.c
+sources/mandel_artist.c \
+sources/event_utils.c
 
 NAME = fractol
 

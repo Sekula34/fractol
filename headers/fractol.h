@@ -78,6 +78,7 @@ double	get_y_from_heighty(int screen_heighty, t_fractol *data);
 int		mandel_artist(t_fractol *fractol);
 void	mandelbrot(void);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
+void	zooming(t_fractol *data, int option, int x, int y);
 
 
 #endif
