@@ -12,6 +12,31 @@
 
 #include "../headers/fractol.h"
 
+
+void moving_arr(t_fractol *data, int option)
+{
+	if(option == 1)
+	{
+		data->coordinate_y_max += 0.1;
+		data->coordinate_y_min += 0.1;
+	}
+	else if(option == 2)
+	{
+		data->coordinate_y_max -= 0.1;
+		data->coordinate_y_min -= 0.1;
+	}
+	else if(option == 3)
+	{
+		data->coordinate_x_max += 0.1;
+		data->coordinate_x_min += 0.1;
+	}
+	else if(option == 4)
+	{
+		data->coordinate_x_max -= 0.1;
+		data->coordinate_x_min -= 0.1;
+	}
+}
+
 //destroy everything aka image,  window, display
 //free  mlx_ptr
 //call this function when esc or x is pressed
@@ -38,33 +63,17 @@ int	closef(int keycode, void *param)
 	if (keycode == 65307)
 		closing_function(param);
 	else if (keycode == 65451)
-	{
 		zooming(data, 1, WIDTHX/2, HEIGHTY/2);
-	}
 	else if (keycode == 65453)
-	{
 		zooming(data, 2, WIDTHX/2, HEIGHTY/2);
-	}
 	else if(keycode == 65364)
-	{
-		data->coordinate_y_max += 0.1;
-		data->coordinate_y_min += 0.1;
-	}
+		moving_arr(data, 1);
 	else if(keycode == 65362)
-	{
-		data->coordinate_y_max -= 0.1;
-		data->coordinate_y_min -= 0.1;
-	}
+		moving_arr(data, 2);
 	else if(keycode == 65363)
-	{
-		data->coordinate_x_max += 0.1;
-		data->coordinate_x_min += 0.1;
-	}
+		moving_arr(data, 3);
 	else if(keycode == 65361)
-	{
-		data->coordinate_x_max -= 0.1;
-		data->coordinate_x_min -= 0.1;
-	}
+		moving_arr(data, 4);
 	mandel_artist(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0 ,0 );
 	return (1);
@@ -99,7 +108,7 @@ void	mandelbrot(void)
 	if (data.mlx_ptr == NULL)
 		exit(EXIT_FAILURE);
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTHX, HEIGHTY,
-			"Prozor stare majke");
+			"Mandelbrot fractol set");
 	data.img.img = mlx_new_image(data.mlx_ptr, WIDTHX, HEIGHTY);
 	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel,
 			&data.img.line_length, &data.img.endian);
