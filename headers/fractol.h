@@ -30,7 +30,7 @@
 # define COORDINATE_X_MIN -2
 # define COORDINATE_Y_MAX 1.25
 # define COORDINATE_Y_MIN -1.25
-# define MAX_ITERATION 20
+# define MAX_ITERATION 100
 
 typedef struct s_data{
 	int		bits_per_pixel;
