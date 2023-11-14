@@ -28,10 +28,15 @@ void zooming(t_fractol *data, int option, int x, int y)
 		new_x_diff = (data->coordinate_x_max - data->coordinate_x_min) * 0.9;
 		new_y_diff = (data->coordinate_y_max - data->coordinate_y_min) * 0.9;
 	}
-	else
+	else if(option == 2)
 	{
 		new_x_diff = (data->coordinate_x_max - data->coordinate_x_min) * 1.1;
 		new_y_diff = (data->coordinate_y_max - data->coordinate_y_min) * 1.1;
+	}
+	else 
+	{
+		new_x_diff = (data->coordinate_x_max - data->coordinate_x_min);
+		new_y_diff = (data->coordinate_y_max - data->coordinate_y_min);
 	}
 	x_center = get_x_from_widthx(x, data);
 	y_center = get_y_from_heighty(y, data);

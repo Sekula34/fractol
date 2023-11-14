@@ -44,22 +44,22 @@ int	closef(int keycode, void *param)
 	{
 		zooming(data, 2, WIDTHX/2, HEIGHTY/2);
 	}
-	else if(keycode == 115)
+	else if(keycode == 65364)
 	{
 		data->coordinate_y_max += 0.1;
 		data->coordinate_y_min += 0.1;
 	}
-	else if(keycode == 119)
+	else if(keycode == 65362)
 	{
 		data->coordinate_y_max -= 0.1;
 		data->coordinate_y_min -= 0.1;
 	}
-	else if(keycode == 100)
+	else if(keycode == 65363)
 	{
 		data->coordinate_x_max += 0.1;
 		data->coordinate_x_min += 0.1;
 	}
-	else if(keycode == 97)
+	else if(keycode == 65361)
 	{
 		data->coordinate_x_max -= 0.1;
 		data->coordinate_x_min -= 0.1;
@@ -78,6 +78,10 @@ int mouse_cather(int button, int x, int y, void *param)
 		zooming(data, 1, x, y);
 	if(button == 5)
 		zooming(data, 2, x, y);
+	if (button == 3)
+	{
+		zooming(data, 3, x, y);
+	}
 	mandel_artist(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
 	return (0);
