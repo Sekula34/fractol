@@ -49,7 +49,7 @@ static void every_pixel_function(int x, int y, t_fractol *data)
 	double	x_pow;
 	double	y_pow;
 
-	int color = 0x00FF0000;
+	int color = 0x00000000;
 
 	data_initializator(&pixel, x, y);
 	while(is_true(pixel))
@@ -65,8 +65,8 @@ static void every_pixel_function(int x, int y, t_fractol *data)
 	//pixel.color.transparency = pixel.iteration % 256;
 	color = pixel.iteration;
 	printf("data is %p\n", data);
-	//my_mlx_pixel_put(data->img.img ,x, y, color);
 
+	my_mlx_pixel_put(&(data->img),x, y, color);
 }
 //function that iterates throught every pixel on window screen and 
 //call function on every pixel
