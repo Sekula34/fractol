@@ -27,7 +27,7 @@ int	closing_function(void *param)
 	exit(EXIT_SUCCESS);
 	return (0);
 }
-
+//if esc is pressed close program and free everything
 int	closef(int keycode, void *param)
 {
 	if (keycode == 65307)
