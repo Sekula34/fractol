@@ -64,13 +64,17 @@ typedef struct s_point
 
 typedef struct s_all_data{
 	t_image	img;
+	double	coordinate_x_max;
+	double	coordinate_x_min;
+	double	coordinate_y_max;
+	double	coordinate_y_min;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_fractol;
 
 int		input_handler(int argc, char *argv[]);
-double	get_x_from_widthx(int screen_widthx);
-double	get_y_from_heighty(int screen_heighty);
+double	get_x_from_widthx(int screen_widthx, t_fractol *data);
+double	get_y_from_heighty(int screen_heighty, t_fractol *data);
 void	mandel_artist(t_fractol *fractol);
 void	mandelbrot(void);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);

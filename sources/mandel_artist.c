@@ -13,14 +13,14 @@
 #include "../headers/fractol.h"
 
 //initalizing data of pixel
-static void	data_initializator(t_pixel *pixel, int x, int y)
+static void	data_initializator(t_pixel *pixel, int x, int y, t_fractol *data)
 {
 	if (pixel == NULL)
 		return ;
 	pixel->screen_x = x;
 	pixel->screen_y = y;
-	pixel->coordinate_x = get_x_from_widthx(x);
-	pixel->coordinate_y = get_y_from_heighty(y);
+	pixel->coordinate_x = get_x_from_widthx(x, data);
+	pixel->coordinate_y = get_y_from_heighty(y, data);
 	pixel->iteration = 0;
 	pixel->max_iteration = MAX_ITERATION;
 	pixel->xtemp = 0.0;
@@ -52,7 +52,7 @@ static void	every_pixel_function(int x, int y, t_fractol *data)
 
 	x_pow = 0;
 	y_pow = 0;
-	data_initializator(&pixel, x, y);
+	data_initializator(&pixel, x, y, data);
 	while (is_true(pixel, x_pow, y_pow))
 	{
 		pixel.iterator_y = (2 * pixel.iterator_x) * pixel.iterator_y

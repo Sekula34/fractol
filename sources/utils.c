@@ -22,25 +22,29 @@ void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 
 //return x from screen pixel to be between coordinate max and coordinate min
 //for example between -2 and 2 (if so defined in header) (depending od width)
-double	get_x_from_widthx(int screen_widthx)
+double	get_x_from_widthx(int screen_widthx, t_fractol *data)
 {
 	double	x;
 	double	x_factor;
+	double	range;
 
 	x_factor = ((double)(screen_widthx) / (double)(WIDTHX));
-	x = x_factor * (COORDINATE_X_MAX - COORDINATE_X_MIN) + COORDINATE_X_MIN;
+	range = data->coordinate_x_max - data->coordinate_x_min;
+	x = x_factor * range + data->coordinate_x_min;
 	return (x);
 }
 
 //return y from screen pixel to be between coordinate max and coordinate min
 //for example between -2 and 2 (if so defined in header) (depending on height)
 //480 becomes 2, 0 becomes -2, 240 is 1; 
-double	get_y_from_heighty(int screen_heighty)
+double	get_y_from_heighty(int screen_heighty, t_fractol *data)
 {
 	double	y;
 	double	y_factor;
+	double range;
 
 	y_factor = ((double)(screen_heighty) / (double)(HEIGHTY));
-	y = y_factor * (COORDINATE_Y_MAX - COORDINATE_Y_MIN) + COORDINATE_Y_MIN;
+	range = data->coordinate_y_max - data->coordinate_y_min;
+	y = y_factor * range + data->coordinate_y_min;
 	return (y);
 }
