@@ -28,6 +28,7 @@ int	closing_function(void *param)
 	return (0);
 }
 //if esc is pressed close program and free everything
+//handle movememnt arrows and zooming with plus and minus
 int	closef(int keycode, void *param)
 {
 	t_fractol *data;
@@ -69,6 +70,9 @@ int	closef(int keycode, void *param)
 	return (1);
 }
 
+//get position of mouse
+//scrolling up zooms and make position of mouse ceneter
+// right click moves coordinate system (aka picture)
 int mouse_cather(int button, int x, int y, void *param)
 {
 	t_fractol *data;
