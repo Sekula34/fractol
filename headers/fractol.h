@@ -73,6 +73,7 @@ typedef struct s_all_data{
 }	t_fractol;
 
 int		input_handler(int argc, char *argv[]);
+int		input_handler_julia(int argc, char *argv[]);
 double	get_x_from_widthx(int screen_widthx, t_fractol *data);
 double	get_y_from_heighty(int screen_heighty, t_fractol *data);
 int		mandel_artist(t_fractol *fractol);

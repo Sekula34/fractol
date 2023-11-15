@@ -15,6 +15,8 @@
 int	main(int argc, char *argv[])
 {
 	int	set_value;
+	int cx;
+	int cy;
 
 	set_value = input_handler(argc, argv);
 	if (set_value == 1)
@@ -23,7 +25,10 @@ int	main(int argc, char *argv[])
 	}
 	else if (set_value == 2)
 	{
-		//julia
+		input_handler_julia(argc, argv);
+		cx = ft_atoi(argv[2]);
+		cy = ft_atoi(argv[3]);
+		ft_printf("Values are %d, and %d", cx, cy);
 	}
 	ft_printf("Set is %d\n", set_value);
 	return (0);

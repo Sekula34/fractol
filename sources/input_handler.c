@@ -79,3 +79,15 @@ int	input_handler(int argc, char *argv[])
 	}
 	return (is_name_correct(argv[1]));
 }
+
+int input_handler_julia(int argc, char *argv[])
+{
+	(void) argv;
+	if (argc != 4)
+	{
+		ft_putstr_fd("If you want Julia set you need to specify constant cx"
+		" and cy, example julia -800  156\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	return(1);
+}
