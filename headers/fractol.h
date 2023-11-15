@@ -24,8 +24,8 @@
 # include <X11/X.h>
 # include "../libft/libft.h"
 
-# define HEIGHTY 1080
-# define WIDTHX 1920
+# define HEIGHTY 480
+# define WIDTHX 640
 # define COORDINATE_X_MAX 0.75
 # define COORDINATE_X_MIN -2
 # define COORDINATE_Y_MAX 1.25
