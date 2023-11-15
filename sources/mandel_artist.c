@@ -80,10 +80,10 @@ int	mandel_artist(t_fractol *fractol)
 
 	x = 0;
 	y = 0;
-	while (x <= WIDTHX)
+	while (x < WIDTHX)
 	{
 		y = 0;
-		while (y <= HEIGHTY)
+		while (y < HEIGHTY)
 		{
 			every_pixel_function(x, y, fractol);
 			y++;

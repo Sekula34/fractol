@@ -12,33 +12,6 @@
 
 #include "../headers/fractol.h"
 
-//fucntion that depending od option moves coordinate system
-//aka moving picture with arrrows
-//1 up 2 down, 3 right 4 left
-void moving_arr(t_fractol *data, int option)
-{
-	if(option == 1)
-	{
-		data->coordinate_y_max += 0.1;
-		data->coordinate_y_min += 0.1;
-	}
-	else if(option == 2)
-	{
-		data->coordinate_y_max -= 0.1;
-		data->coordinate_y_min -= 0.1;
-	}
-	else if(option == 3)
-	{
-		data->coordinate_x_max += 0.1;
-		data->coordinate_x_min += 0.1;
-	}
-	else if(option == 4)
-	{
-		data->coordinate_x_max -= 0.1;
-		data->coordinate_x_min -= 0.1;
-	}
-}
-
 
 //if esc is pressed close program and free everything
 //handle movememnt arrows and zooming with plus and minus

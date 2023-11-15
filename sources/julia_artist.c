@@ -64,10 +64,10 @@ static void every_pixel_julia(int x, int y, t_fractol *data)
 		pixel.coordinate_x = pixel.xtemp + data->julia_cx;
 		pixel.iteration = pixel.iteration + 1;   
 	}
-	if(pixel.iteration == pixel.max_iteration)
+	if(pixel.iteration  == pixel.max_iteration)
 		my_mlx_pixel_put(&(data->img), x, y, 0x00000000);
 	else
-		my_mlx_pixel_put(&(data->img),x, y, (0x10BBBBBB/pixel.max_iteration) * pixel.iteration);
+		my_mlx_pixel_put(&(data->img),x, y, (0x00A0A0A0/pixel.max_iteration) * pixel.iteration);
 }
 
 void julia_artist(t_fractol *fractol)
@@ -77,10 +77,10 @@ void julia_artist(t_fractol *fractol)
 
 	x = 0;
 	y = 0;
-	while (x <= WIDTHX)
+	while (x < WIDTHX)
 	{
 		y = 0;
-		while (y <= HEIGHTY)
+		while (y < HEIGHTY)
 		{
 			every_pixel_julia(x, y, fractol);
 			y++;

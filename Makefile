@@ -1,7 +1,7 @@
 CC = cc 
 
-COMPILER_FLAGS = -Wall -Wextra -Werror -g
-MLX_CMP_FLAGS = -lmlx -lXext -lX11
+COMPILER_FLAGS = -Wall -Wextra -Werror -O2
+MLX_CMP_FLAGS = -lmlx -lXext -lX11 
 
 SOURCES = sources/main.c \
 sources/input_handler.c \

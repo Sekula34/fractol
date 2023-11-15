@@ -30,7 +30,7 @@
 # define COORDINATE_X_MIN -2
 # define COORDINATE_Y_MAX 1.25
 # define COORDINATE_Y_MIN -1.25
-# define MAX_ITERATION 80
+# define MAX_ITERATION 200
 
 typedef struct s_data{
 	int		bits_per_pixel;
@@ -84,6 +84,7 @@ void	julia(int cx, int cy);
 void	julia_artist(t_fractol *fractol);
 int		mandel_artist(t_fractol *fractol);
 void	mandelbrot(void);
+void	moving_arr(t_fractol *data, int option);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 void	zooming(t_fractol *data, int option, int x, int y);
 

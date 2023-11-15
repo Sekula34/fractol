@@ -20,6 +20,20 @@ int closej(int keycode, void *param)
 	data = (t_fractol *)param;
 	if(keycode == 65307)
 		closing_function(param);
+	else if (keycode == 65451)
+		zooming(data, 1, WIDTHX/2, HEIGHTY/2);
+	else if (keycode == 65453)
+		zooming(data, 2, WIDTHX/2, HEIGHTY/2);
+	else if(keycode == 65364)
+		moving_arr(data, 1);
+	else if(keycode == 65362)
+		moving_arr(data, 2);
+	else if(keycode == 65363)
+		moving_arr(data, 3);
+	else if(keycode == 65361)
+		moving_arr(data, 4);
+	julia_artist(data);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0 ,0 );
 	return (1);
 }
 void julia(int cx, int cy)
@@ -34,10 +48,10 @@ void julia(int cx, int cy)
 	data.img.img = mlx_new_image(data.mlx_ptr, WIDTHX, HEIGHTY);
 	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel,
 		&data.img.line_length, &data.img.endian);
-	data.coordinate_x_max = 1;
+	data.coordinate_x_max = 2;
 	data.coordinate_x_min = -2;
-	data.coordinate_y_max = 1.25;
-	data.coordinate_y_min = -1.25;
+	data.coordinate_y_max = 2;
+	data.coordinate_y_min = -2;
 	data.julia_cx = (double)(cx)/1000;
 	data.julia_cy = (double)(cy)/1000;
 	julia_artist(&data);
