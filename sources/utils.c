@@ -41,7 +41,7 @@ double	get_y_from_heighty(int screen_heighty, t_fractol *data)
 {
 	double	y;
 	double	y_factor;
-	double range;
+	double	range;
 
 	y_factor = ((double)(screen_heighty) / (double)(HEIGHTY));
 	range = data->coordinate_y_max - data->coordinate_y_min;
