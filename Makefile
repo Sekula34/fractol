@@ -16,7 +16,7 @@ NAME = fractol
 
 OBJS := $(SOURCES:%.c=%.o)
 
-%.o : %.c
+%.o : %.c ./headers/fractol.h
 	$(CC) $(COMPILER_FLAGS)  -c $< -o $@
 
 $(NAME): $(OBJS)
