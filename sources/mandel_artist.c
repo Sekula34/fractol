@@ -47,8 +47,6 @@ static void	every_pixel_function(int x, int y, t_fractol *data)
 	t_pixel	pixel;
 	double	x_pow;
 	double	y_pow;
-	//int		color1 = 0x00000000;
-	int		color2 = 0xFFFFFFFF;
 
 	x_pow = 0;
 	y_pow = 0;
@@ -63,11 +61,11 @@ static void	every_pixel_function(int x, int y, t_fractol *data)
 		pixel.iteration++;
 	}
 	if (x_pow + y_pow <= 4)
-		my_mlx_pixel_put(&(data->img), x, y, color2);
+		my_mlx_pixel_put(&(data->img), x, y, 0xFFFFFFFF);
 	else
 	{
-		//my_mlx_pixel_put(&(data->img), x, y, color1);
-		my_mlx_pixel_put(&(data->img),x, y, (0x10BBBBBB/pixel.max_iteration) * pixel.iteration);
+		my_mlx_pixel_put(&(data->img), x, y,
+			(0x10BBBBBB / pixel.max_iteration) * pixel.iteration);
 	}
 }
 
