@@ -39,21 +39,7 @@ void moving_arr(t_fractol *data, int option)
 	}
 }
 
-//destroy everything aka image,  window, display
-//free  mlx_ptr
-//call this function when esc or x is pressed
-int	closing_function(void *param)
-{
-	t_fractol	*param1;
 
-	param1 = (t_fractol *)param;
-	mlx_destroy_image(param1->mlx_ptr, param1->img.img);
-	mlx_destroy_window(param1->mlx_ptr, param1->win_ptr);
-	mlx_destroy_display(param1->mlx_ptr);
-	free(param1->mlx_ptr);
-	exit(EXIT_SUCCESS);
-	return (0);
-}
 //if esc is pressed close program and free everything
 //handle movememnt arrows and zooming with plus and minus
 int	closef(int keycode, void *param)

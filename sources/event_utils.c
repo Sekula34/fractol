@@ -42,3 +42,19 @@ void zooming(t_fractol *data, int option, int x, int y)
 	data->coordinate_y_max = y_center + (new_y_diff / 2);
 	data->coordinate_y_min = y_center - (new_y_diff / 2);
 }
+
+//destroy everything aka image,  window, display
+//free  mlx_ptr
+//call this function when esc or x is pressed
+int	closing_function(void *param)
+{
+	t_fractol	*param1;
+
+	param1 = (t_fractol *)param;
+	mlx_destroy_image(param1->mlx_ptr, param1->img.img);
+	mlx_destroy_window(param1->mlx_ptr, param1->win_ptr);
+	mlx_destroy_display(param1->mlx_ptr);
+	free(param1->mlx_ptr);
+	exit(EXIT_SUCCESS);
+	return (0);
+}

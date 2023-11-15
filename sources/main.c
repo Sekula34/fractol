@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 		input_handler_julia(argc, argv);
 		cx = ft_atoi(argv[2]);
 		cy = ft_atoi(argv[3]);
-		ft_printf("Values are %d, and %d", cx, cy);
+		julia(cx, cy);
 	}
 	ft_printf("Set is %d\n", set_value);
 	return (0);

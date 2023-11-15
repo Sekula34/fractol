@@ -8,7 +8,8 @@ sources/input_handler.c \
 sources/mandelbrot.c \
 sources/utils.c \
 sources/mandel_artist.c \
-sources/event_utils.c
+sources/event_utils.c \
+sources/julia.c
 
 NAME = fractol
 
