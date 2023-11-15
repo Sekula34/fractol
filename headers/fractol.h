@@ -70,7 +70,7 @@ typedef struct s_all_data{
 	double	coordinate_y_min;
 	double	julia_cx;
 	double	julia_cy;
-	double	julia_R;
+	double	julia_r;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_fractol;
@@ -87,6 +87,5 @@ void	mandelbrot(void);
 void	moving_arr(t_fractol *data, int option);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 void	zooming(t_fractol *data, int option, int x, int y);
-
 
 #endif
