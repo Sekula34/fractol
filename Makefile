@@ -9,7 +9,8 @@ sources/mandelbrot.c \
 sources/utils.c \
 sources/mandel_artist.c \
 sources/event_utils.c \
-sources/julia.c
+sources/julia.c \
+sources/julia_artist.c
 
 NAME = fractol
 

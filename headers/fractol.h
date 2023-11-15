@@ -70,6 +70,7 @@ typedef struct s_all_data{
 	double	coordinate_y_min;
 	double	julia_cx;
 	double	julia_cy;
+	double	julia_R;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_fractol;
@@ -80,6 +81,7 @@ double	get_y_from_heighty(int screen_heighty, t_fractol *data);
 int		input_handler(int argc, char *argv[]);
 int		input_handler_julia(int argc, char *argv[]);
 void	julia(int cx, int cy);
+void	julia_artist(t_fractol *fractol);
 int		mandel_artist(t_fractol *fractol);
 void	mandelbrot(void);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);

@@ -40,11 +40,10 @@ void julia(int cx, int cy)
 	data.coordinate_y_min = -1.25;
 	data.julia_cx = (double)(cx)/1000;
 	data.julia_cy = (double)(cy)/1000;
-	//julia_artist
-	//putimage
+	julia_artist(&data);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.img, 0, 0);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, closej, &data);
 	mlx_hook(data.win_ptr, DestroyNotify, NoEventMask, closing_function, &data);
 	//mouse
 	mlx_loop(data.mlx_ptr);
-	
 }
