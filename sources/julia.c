@@ -36,6 +36,27 @@ int closej(int keycode, void *param)
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0 ,0 );
 	return (1);
 }
+//get position of mouse
+//scrolling up zooms and make position of mouse ceneter
+// right click moves coordinate system (aka picture)
+int mouse_catherj(int button, int x, int y, void *param)
+{
+	t_fractol *data;
+
+	data = (t_fractol *) param;
+	if(button == 4)
+		zooming(data, 1, x, y);
+	if(button == 5)
+		zooming(data, 2, x, y);
+	if (button == 3)
+	{
+		zooming(data, 3, x, y);
+	}
+	julia_artist(data);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
+	return (0);
+}
+
 void julia(int cx, int cy)
 {
 	t_fractol data;
@@ -59,5 +80,6 @@ void julia(int cx, int cy)
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, closej, &data);
 	mlx_hook(data.win_ptr, DestroyNotify, NoEventMask, closing_function, &data);
 	//mouse
+	mlx_mouse_hook(data.win_ptr, mouse_catherj, &data);
 	mlx_loop(data.mlx_ptr);
 }
