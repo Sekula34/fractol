@@ -19,7 +19,6 @@ int	closef(int keycode, void *param)
 	t_fractol	*data;
 
 	data = (t_fractol *)param;
-	ft_printf("stisno sam tipku %d\n", keycode);
 	if (keycode == 65307)
 		closing_function(param);
 	else if (keycode == 65451)

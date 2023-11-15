@@ -30,6 +30,5 @@ int	main(int argc, char *argv[])
 		cy = ft_atoi(argv[3]);
 		julia(cx, cy);
 	}
-	ft_printf("Set is %d\n", set_value);
 	return (0);
 }
