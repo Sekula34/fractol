@@ -15,8 +15,8 @@
 int	main(int argc, char *argv[])
 {
 	int	set_value;
-	int cx;
-	int cy;
+	int	cx;
+	int	cy;
 
 	set_value = input_handler(argc, argv);
 	if (set_value == 1)
